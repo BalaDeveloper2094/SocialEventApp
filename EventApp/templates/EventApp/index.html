@@ -1,0 +1,22 @@
+{% extends 'EventApp/layout.html'%}
+
+{% block content %}
+
+    <!--Display events-->
+    <div class="container">
+        <div class="card-deck">
+            {% for event in events %}
+                <div class="card mt-4 col-lg-4">
+                    <div class="card-body">
+                        <h5 class="card-title">{{event.title}}</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional
+                            content. This content is a little bit longer.</p>
+                        <a href="/EventApp/details/{{event.id}}" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

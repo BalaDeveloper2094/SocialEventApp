@@ -1,0 +1,21 @@
+{% extends 'EventApp/layout.html'%}
+
+{% block content %}
+
+<div class="card mt-5">
+    <div class="card-header">
+        <h4 class="card-title">{{event.title}}</h4>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Event Date: {{event.Date}}</h5>
+        <p class="card-text">{{event.body}}</p>
+        <a href="{{event.location}}" class="btn btn-outline-success">Location</a>
+    </div>
+</div>
+
+<div class="float-left mt-3">
+    <a href="/EventApp" class="btn btn-primary">Back</a>
+</div>
+
+
+{% endblock %}
