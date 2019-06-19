@@ -14,3 +14,17 @@ class EventApp(models.Model):
 
     class Meta:
         verbose_name_plural = "Event App"
+
+
+class EventAppPolling(models.Model):
+    inputname = models.TextField(default='')
+    datePicker = models.DateField(default=datetime.now, blank=True)
+    eventName = models.CharField(default='', max_length=200)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = "Event App Polling"
+
+

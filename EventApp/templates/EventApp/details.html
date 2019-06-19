@@ -2,6 +2,7 @@
 
 {% block content %}
 
+
 <div class="card mt-5">
     <div class="card-header">
         <h4 class="card-title">{{event.title}}</h4>
@@ -10,6 +11,39 @@
         <h5 class="card-title">Event Date: {{event.Date}}</h5>
         <p class="card-text">{{event.body}}</p>
         <a href="{{event.location}}" class="btn btn-outline-success">Location</a>
+        <div class="container mt-5">
+            <div class="table-responsive-sm">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Participants</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for dates in topDates %}
+                        <tr>
+                            <td>{{ dates.datePicker}}</td>
+                            <td>{{ dates.c}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <form class="form-inline" action="./AddEventPolling/{{event.id}}" method="POST">
+            {% csrf_token %}
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="inputname" class="sr-only">Name</label>
+                <input type="text" class="form-control" name="inputname" placeholder="Name">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <input placeholder="Selected date" type="date" name="datePicker" class="form-control datepicker">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">save</button>
+        </form>
     </div>
 </div>
 

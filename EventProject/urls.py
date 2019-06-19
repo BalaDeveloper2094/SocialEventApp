@@ -20,5 +20,5 @@ from django.conf.urls import url
 urlpatterns = [
     url(r'^$', include('EventApp.urls')),
     url('admin/', admin.site.urls),
-    url('EventApp/', include('EventApp.urls'))
+    url('EventApp/', include('EventApp.urls')),
 ]
